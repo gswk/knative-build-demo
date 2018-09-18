@@ -1,0 +1,24 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: knative-build-demo
+  namespace: default
+spec:
+  runLatest:
+    configuration:
+      build:
+        serviceAccountName: build-bot
+        source:
+          git:
+            url: https://github.com/BrianMMcClain/knative-build-demo.git
+            revision: master
+        template:
+          name: kaniko
+          arguments:
+          - name: IMAGE
+            value: docker.io/brianmmcclain/knative-build-demo:latest
+      revisionTemplate:
+        spec:
+          container:
+            image: docker.io/brianmmcclain/knative-build-demo:latest
+            imagePullPolicy: Always
