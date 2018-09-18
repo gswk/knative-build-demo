@@ -1,0 +1,15 @@
+apiVersion: build.knative.dev/v1alpha1
+kind: Build
+metadata:
+  name: kaniko-build
+spec:
+  serviceAccountName: build-bot
+  source:
+    git:
+      url: https://github.com/BrianMMcClain/knative-build-demo
+      revision: master
+  template:
+    name: kaniko
+    arguments:
+    - name: IMAGE
+      value: brianmmcclain/knative-build-demo
