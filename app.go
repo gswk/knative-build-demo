@@ -19,5 +19,5 @@ func handlePost(rw http.ResponseWriter, req *http.Request) {
 func main() {
 	log.Print("Starting server...")
 	http.HandleFunc("/", handlePost)
-	log.Fatal(http.ListenAndServe(":80", nil))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
