@@ -10,15 +10,15 @@ spec:
         serviceAccountName: build-bot
         source:
           git:
-            url: https://github.com/BrianMMcClain/knative-helloworld.git
+            url: https://github.com/gswk/knative-helloworld.git
             revision: master
         template:
           name: kaniko
           arguments:
           - name: IMAGE
-            value: docker.io/brianmmcclain/knative-build-demo:latest
+            value: docker.io/gswk/knative-build-demo:latest
       revisionTemplate:
         spec:
           container:
-            image: docker.io/brianmmcclain/knative-build-demo:latest
+            image: docker.io/gswk/knative-build-demo:latest
             imagePullPolicy: Always
