@@ -10,7 +10,7 @@ spec:
         serviceAccountName: build-bot
         source:
           git:
-            url: https://github.com/gswk/knative-helloworld.git
+            url: https://github.com/gswk/knative-build-demo.git
             revision: master
         template:
           name: kaniko
