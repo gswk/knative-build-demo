@@ -61,3 +61,21 @@ Other than this section, everything is as expected. We tell Knative to pull down
 container:
             image: docker.io/brianmmcclain/knative-build-demo:latest
 ```            
+
+Before we can apply our service YAML and run our application, we'll need to install the Kaniko build template:
+
+```
+kubectl apply --filename https://raw.githubusercontent.com/knative/build-templates/master/kaniko/kaniko.yaml
+```
+
+Finally, we can apply our service YAML and run our application!
+
+```
+kubectl apply -f service.yml
+```
+
+```
+$ curl http://$SERVICE_IP -H "Host: knative-build-demo.default.example.com"
+
+Hello from Knative Builds!
+```
